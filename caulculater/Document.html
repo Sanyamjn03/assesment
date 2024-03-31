@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .sing {
+        position: absolute;
+        left: 230px;
+        width: 70px;
+        top: 94px;
+    }
+
+    input {
+        height: 50px;
+        width: 70px;
+        /* border: none; */
+        background-color: rgb(43, 42, 42);
+        color: white;
+
+    }
+
+    .two {
+        height: 40px;
+        width: 50px;
+        background-color: rgb(66, 63, 63);
+
+
+    }
+
+    #display {
+        background-color: whitesmoke;
+        height: 80px;
+        width: 265px;
+        color: black;
+    }
+</style></head>
+
+
+<body>
+
+    <input type="text" disabled="" id="display">
+
+    <div>
+        <input type="button" value="7" onclick="main('7')">
+        <input type="button" value="8" onclick="main('8')">
+        <input type="button" value="9" onclick="main('9')">
+
+        <br>
+        <input type="button" value="4" onclick="main('4')">
+        <input type="button" value="5" onclick="main('5')">
+        <input type="button" value="6" onclick="main('6')">
+
+        <br>
+        <input type="button" value="1" onclick="main('1')">
+        <input type="button" value="2" onclick="main('2')">
+        <input type="button" value="3" onclick="main('3')">
+
+        <br>
+        <input type="button" value="." onclick="main('.')">
+        <input type="button" value="0" onclick="main('0')">
+        <input type="button" value="=" onclick="calculate()">
+
+    </div>
+
+    <div class="sing">
+        <input type="button" class="two" value="DEL" onclick="de()"><br>
+        <input type="button" class="two" value="/" onclick="main('/')"><br>
+        <input type="button" class="two" value="x" onclick="main('*')"><br>
+        <input type="button" class="two" value="-" onclick="main('-')"><br>
+        <input type="button" class="two" value="+" onclick="main('+')">
+
+    </div>
+
+
+
+<script>
+    function main(value) {
+        document.getElementById("display").value += value
+    }
+
+    function clearDisplay() {
+        document.getElementById("display").value = '';
+
+    }
+
+    function calculate() {
+        let a = document.getElementById("display").value;
+        let result;
+        try {
+            result = eval(a)
+        }
+        catch (error) {
+            result = "error"
+        }
+        document.getElementById("display").value = result;
+    }
+
+    function de() {
+        document.getElementById("display").value = display.value.toString().slice(0, -1);
+    }
+
+
+</script>
+
+</body></html>
